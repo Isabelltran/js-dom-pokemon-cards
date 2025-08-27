@@ -24,7 +24,7 @@ function renderTasks(){
 
         data[i].game_indices.forEach(gameIndex => {
             const gameItem = document.createElement('li');
-            gameItem.textContent = `GAME: ${gameIndex.version.name.toUpperCase()}`;
+            gameItem.textContent = `${gameIndex.version.name.toUpperCase()}: ${gameIndex.game_index}`;
             game.appendChild(gameItem);
         });
 
