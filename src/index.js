@@ -1,4 +1,3 @@
-
 function renderTasks(){
     console.log("In renderTasks")
     console.log(data)
@@ -20,6 +19,15 @@ function renderTasks(){
         const stats = document.createElement('ul');
         stats.className = 'card--text';
 
+        const game = document.createElement('ul');
+        game.className = 'card--text';
+
+        data[i].game_indices.forEach(gameIndex => {
+            const gameItem = document.createElement('li');
+            gameItem.textContent = `GAME: ${gameIndex.version.name.toUpperCase()}`;
+            game.appendChild(gameItem);
+        });
+
         data[i].stats.forEach(stat => {
         const statItem = document.createElement('li');
         statItem.textContent = `${stat.stat.name.toUpperCase()}: ${stat.base_stat}`;
@@ -30,6 +38,7 @@ function renderTasks(){
         cardLi.appendChild(title);
         cardLi.appendChild(image);
         cardLi.appendChild(stats);
+        cardLi.appendChild(game);
         document.querySelector('.cards').appendChild(cardLi);
     }
 }
